@@ -24,3 +24,10 @@ def test_nan_amount():
 
 def test_negative_balance():
     assert transfer(-1000, 500, 100) == (-1000, 500, False)
+
+
+def test_transfer_entire_balance():
+    balance_from, balance_to, success = transfer(1000, 500, 1000)
+    assert balance_from == 0
+    assert balance_to == 1500
+    assert success is True
