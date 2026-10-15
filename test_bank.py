@@ -31,3 +31,13 @@ def test_transfer_entire_balance():
     assert balance_from == 0
     assert balance_to == 1500
     assert success is True
+
+from bank import transfer, get_account_info
+def test_get_account_info():
+    assert get_account_info(1250) == "Баланс счёта: 1250.00"
+
+def test_get_account_info_negative():
+    assert get_account_info(-10) is None
+
+def test_get_account_info_str():
+    assert get_account_info("100") is None

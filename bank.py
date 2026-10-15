@@ -18,3 +18,12 @@ def transfer(balance_from, balance_to, amount):
         return balance_from, balance_to, False
 
     return balance_from - amount, balance_to + amount, True
+
+def get_account_info(balance):
+    if isinstance(balance, bool) or not isinstance(balance, (int, float)):
+        return None
+
+    if not math.isfinite(balance) or balance < 0:
+        return None
+
+    return f"Баланс счёта: {balance:.2f}"
